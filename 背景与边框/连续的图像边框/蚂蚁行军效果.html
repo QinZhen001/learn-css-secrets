@@ -7,9 +7,17 @@
     div {
       max-width: 21em;
       padding: 1em;
-      border: 1em solid transparent;
+      border: 1px solid transparent;
       font: 100%/1.6 Baskerville, Palatino, serif;
-      background: linear-gradient(white, white);
+      background: linear-gradient(white, white) padding-box,
+      repeating-linear-gradient(-45deg, black 0, black 25%, white 0, white 50%) 0/.6em .6em;
+      animation: ants 12s linear infinite;
+    }
+
+    @keyframes ants {
+      to{
+        background-position: 100%;
+      }
     }
   </style>
 </head>
