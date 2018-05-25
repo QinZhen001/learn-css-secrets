@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>边框内圆角</title>
+  <style>
+    div {
+      max-width: 10em;
+      padding: 1em;
+      margin: 1em;
+      background: tan;
+      font: 100%/1.5 sans-serif;
+      border-radius: .8em;
+      box-shadow: 0 0 0 .4em #655;
+      outline: .6em solid #655;
+    }
+  </style>
+</head>
+<body>
+<div>I have a nice subtle inner rounding, don’t I look pretty?</div>
+
+
+描边并不会跟着元素的圆角走,因而显示出直角,但 box-shadow 却是会的 <br>
+所以先box-shadow再outline就可以了 <br><br><br><br><br>
+为 box-shadow 属性指定的扩张值并不一定等于描边的宽 度，我们只需要指定一个足够填补“空隙”的扩张值就可以了 <br>
+一般直接使用圆角半径的一半(扩张值为box-shadow宽度) <br><br><br>
+扩张半径需要比描边的宽度值小,也就是box-shadow的宽度要比outline宽度小
+
+</body>
+</html>
