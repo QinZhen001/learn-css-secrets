@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>简单的饼图</title>
+  <style>
+    .pie {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: yellowgreen;
+    }
+
+    .pie::before {
+      content: '';
+      display: block;
+      margin-left: 50%;
+      height: 100%;
+      border-radius: 0 100% 100% 0 / 50%;
+      background-color: red;
+      transform-origin: left;
+      transform: rotate(.2turn);
+    }
+
+  </style>
+</head>
+<body>
+<div class="pie">
+</div>
+
+<br>
+transform-origin: left; 相当于   transform-origin: left center;
+</body>
+</html>
