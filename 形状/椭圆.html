@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>椭圆</title>
+  <style>
+    div {
+      width: 16em;
+      height: 10em;
+      background: #fb3;
+      border-radius: 50% 30% 10%;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+border-radius，有一个鲜为人知的真相：它可以单独指定水平 和垂直半径，只要用一个斜杠（/）分隔这两个值即可 <br>
+这个特性允许我 们在拐角处创建椭圆圆角 <br><br><br>
+
+它不仅可以接受长度值，还可以接受百分比值。这个百分比值会基于元素的尺寸进行解析，即宽度用于水平半径的解析，而高度用于垂直半径的解析 <br>
+
+<br><br>真正简洁的方法还是使用 border-radius 这个简写属性，因为 我们可以向它一次性提供用空格分开的多个值。<br>
+如果我们传给它四个值，这 四个值就会被分别从左上角开始以顺时针顺序应用到元素的各个拐角。如果 我们提供的值少于四个，则它们会以 CSS 的常规方式重复，类似于 borderwidth 的值。<br>
+如果只提供了三个值，则意味着第四个值与第二值相同；如果 只有两个值，则意味着第三个值与第一个相同。<br>
+
+
+<br><br>
+当 border-radius 的值为 10px / 5px 20px 时，其效果相当于 10px 10px 10px 10px / 5px 20px 5px 20px。
+<br>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
