@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>切角效果</title>
+  <style>
+    div {
+      padding: 1em;
+      width: 15em;
+      color: white;
+      font: 150%/1.6 Baskerville, Palatino, serif;
+      background: #58a;
+      background: linear-gradient(135deg, transparent 15px, #58a 0) top left,
+      linear-gradient(-135deg, transparent 15px, #58a 0) top right,
+      linear-gradient(45deg, transparent 15px, #58a 0) bottom left,
+      linear-gradient(-45deg, transparent 15px, #58a 0) bottom right;
+      background-size: 50% 50%;
+      background-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body>
+<div>Hey, focus! You’re supposed to be looking at my corners, not reading my text. The text is just placeholder!</div>
+<br>
+正deg 顺时针 负deg 逆时针 <strong>(一开始方向指向0deg) 竖直向上</strong>
+<br>
+<img src="./linear-gradient-direction.jpg" width="300" height="300" alt="">
+</body>
+</html>

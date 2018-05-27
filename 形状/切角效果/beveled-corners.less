@@ -1,0 +1,13 @@
+.beveled-corners(@bg,@tl:0,@tr:@tl,@bl:@tl,@br:@tl) {
+  background: @bg;
+  background: linear-gradient(135deg, transparent @tl, @bg 0) top left,
+  linear-gradient(225deg, transparent @tr, @bg 0) top right,
+  linear-gradient(45deg, transparent @bl, @bg 0) bottom left,
+  linear-gradient(-45deg, transparent @br, @bg 0) bottom right;
+  background-size: 50% 50%;
+  background-repeat: no-repeat;
+}
+
+div {
+  .beveled-corners(#5aa, 15px);
+}
