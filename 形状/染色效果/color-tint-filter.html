@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>color-tint-filter</title>
+  <style>
+    img {
+      transition: filter 1s;
+      filter: sepia(1) saturate(4) hue-rotate(295deg);
+    }
+
+    img:hover, img:focus {
+      filter: none;
+    }
+  </style>
+</head>
+<body>
+<img src="../../img/about-bg.jpg" width="500" height="500" alt="">
+
+
+<br><br>
+<a href="http://www.runoob.com/cssref/css3-pr-filter.html">http://www.runoob.com/cssref/css3-pr-filter.html</a>
+<br>
+<strong>sepia()，它会给图片增加一种降饱和度的橙黄色染色效果,几乎所有像素的色相值会被收敛到35~40</strong>
+<br>
+<strong> saturate() 滤镜来给每个像素提升饱和度</strong>
+<br>
+两个滤镜的组合会让我们的图片具有一种暖金色的染色效果。
+<br><br>
+hue-rotate() 滤镜，把每 个像素的色相以指定的度数进行偏移。
+<br>
+hue-rotate(295deg) <br>
+把原有的色相值 40 改变为 335， 我们需要增加大约 295 度（335 – 40）
+
+<br><br><br><br>
+<p>
+  saturate(%):转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。
+</p>
+<p>
+  sepia(%):将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0；
+</p>
+</body>
+</html>

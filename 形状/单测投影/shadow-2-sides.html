@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>shadow-2-sides</title>
+  <style>
+    div {
+      width: 160px;
+      height: 100px;
+      background: #fb3;
+      box-shadow: 3px 3px 6px -3px black;
+    }
+  </style>
+</head>
+<body>
+<div></div>
+<br>
+我们不应该把投影缩得太小，而是只需把阴影藏进一侧，另一侧自 然露出就好。因此，扩张半径不应设为模糊半径的相反值，而应该 是这个相反值的一半
+<br>
+需要指定两个偏移量，因为我们希望投影在水平和垂直方向上同时移动。它们的值需要大于或等于模糊半径的一半，因为我们希望把 投影藏进另外两条边之内。
+
+
+</body>
+</html>

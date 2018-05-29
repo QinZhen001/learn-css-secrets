@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>混合模式</title>
+  <style>
+    .tinted-image {
+      width: 500px;
+      height: 500px;
+      background-size: cover;
+      background-color: hsl(335, 100%, 50%);
+      background-blend-mode: luminosity;
+      /*transition: .5s background-color;*/
+    }
+
+    .tinted-image:hover {
+      background-color: transparent;
+    }
+  </style>
+</head>
+<body>
+<div class="tinted-image" style="background-image: url('../../img/about-bg.jpg')"></div>
+
+<br><br>
+“混合模式”控制了上层元素的颜色 与下层颜色进行混合的方式 <br>
+用它来实现染色效果时，需要用到的混合模式 是 luminosity。<br>
+<strong>。这种 luminosity 混合模式会保留上层元素的 HSL 亮度信 息，并从它的下层吸取色相和饱和度信息</strong>
+<br><br>
+如果在下层准备好我们想要的主 色调，并把待处理的图片放在上层并设置为这种混合模式，那本质上就是在做染色处理
+<br>
+mix-blendmode 可以为整个元素设置混合模式，background-blend-mode 可以为每层 背景单独指定混合模式
+<br>
+<strong>有一件事情需要注意，滤镜是可动画的，而混合模式则不是。</strong>
+<br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
