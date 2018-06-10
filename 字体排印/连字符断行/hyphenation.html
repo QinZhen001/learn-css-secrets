@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>hyphenation</title>
+  <style>
+    .content {
+      width: 8.7em;
+      font: 180%/1.4 Baskerville, serif;
+      text-align: justify;
+      hyphens: auto;
+      background: #55aaaa;
+    }
+  </style>
+</head>
+<body>
+
+<div class="content">
+  “The only way to get rid of a temptation is to yield to it.”
+</div>
+
+
+<br><br><br>
+<p>
+  CSS 文本（第三版）引入了一个新的属性 hyphens 它的值为none、manual 和 auto
+</p>
+<p>
+  none
+  换行时单词不会被打断，甚至在单词内的字符建议有换行点时。行只会在空白符处换行。
+</p>
+<p>
+  manual
+  只有在单词内部的字符暗示换行机会的情况下，单词才会被换行。
+</p>
+<p>
+ <strong> auto
+   浏览器可以根据自己选择使用的任何规则自由地在合适的连字点处自动分词。</strong>
+</p>
+注：该auto设置的行为取决于语言被正确标记，以便相应的断字规则可以选择。您必须使用langHTML属性指定一种语言，以确保自动连字符以您选择的语言应用。
+</body>
+</html>
