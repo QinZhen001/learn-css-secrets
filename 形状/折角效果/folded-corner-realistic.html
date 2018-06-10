@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>folded-corner-realistic</title>
+  <style>
+    .content {
+      position: relative;
+      padding: 2em;
+      width: 12em;
+      color: white;
+      background: #58a;
+      background: linear-gradient(-150deg, transparent 1.5em, #58a 0);
+      border-radius: .5em;
+    }
+
+    .content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1.73em;
+      height: 3em;
+      background: linear-gradient(to left bottom, transparent 50%, rgba(0, 0, 0, .2) 0, rgba(0, 0, 0, .4));
+      transform: translateY(-1.3em) rotate(-30deg);
+      transform-origin: bottom right;
+      border-bottom-left-radius: .5em;
+      box-shadow: -.2em .2em .3em -.1em rgba(0,0,0,.15)
+    }
+
+    .text {
+      line-height: 1.6;
+    }
+
+  </style>
+</head>
+<body>
+<div class="content">
+  “The only way to get rid of a temptation is to yield to it.” — Oscar Wilde, The Picture of Dorian Gray
+</div>
+
+<div class="text">
+  <br><br>
+  看现实世界中的折角 微微旋转的
+  <br>
+  由于我们无法旋转背景，这里终于轮到伪元素登场 把折页三角形的 width 和 height 对调 ，以此改变它的方向
+  <br>
+  我们再以逆时针 30°（(90°– 30°) –30°）来旋转这个折页三角形， 这样可以让它的斜边与折线平行：
+  <br>
+  把 transform-origin 设置为 bottom right，让三角形的右下角成为旋转的中 心，这样就可以让它的右下角保持固定。
+  <br>
+  现在只需在垂直方向上向上移动这个折页三角形就 可以了
+</div>
+</body>
+</html>

@@ -2,9 +2,53 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>/frosted-glass</title>
+  <title>frosted-glass</title>
+  <style>
+    body {
+      font-size: 6px;
+
+    }
+
+    .main {
+      padding: 5px;
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 90px;
+      overflow: hidden;
+      border-radius: .3em;
+      background: hsla(0, 0%, 100%, .25) border-box;
+      box-shadow: 0 0 0 1px hsla(0, 0%, 100%, .3) inset,
+      0 .5em 1em rgba(0, 0, 0, 0.6);
+      text-shadow: 0 1px 1px hsla(0, 0%, 100%, .3);
+    }
+
+    .main::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      filter: blur(20px);
+      -webkit-filter: blur(20px);
+      z-index: -1;
+    }
+
+    body, main::before {
+      background: url("../../img/about-bg.jpg") 0 / cover fixed;
+    }
+
+  </style>
 </head>
 <body>
+<div class="main">
+  “The only way to get rid of a temptation is to yield to it. Resist it, and your soul grows sick with longing for the
+  things it has forbidden to itself, with desire for what its monstrous laws have made monstrous and unlawful.”
+  — Oscar Wilde, The Picture of Dorian Gray
+</div>
 
 </body>
 </html>
