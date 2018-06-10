@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>插入换行</title>
+  <style>
+    span::after{
+      content: "\A";
+      white-space: pre;
+    }
+  </style>
+</head>
+<body>
+<span>我想换一个行</span>
+<span>我想换一个行</span>
+<span>我想换一个行</span>
+<span>我想换一个行</span>
+
+<br><br>
+<p>
+  实际上，有一个Unicode字符是专门代表换行符的：0x000A①。在CSS中， 这个字符可以写作"\000A"，或简化为"\A"。我们可以用它来作为::after 伪元素的内容
+</p>
+<p>
+  为什么会不起作用?我们还忽略了什么?
+</p>
+<p>
+  <strong>还记得在 HTML 代码中输入换行符会发生什么吗？默认情况下，这些换行符会与相邻的其他空白符进行合并</strong>
+</p>
+
+pre:会保留空格，它与pre-line/pre-wrap最大的不同点就是不会自动换行，单行走到底，直到遇到一个换行符才会换行。
+<br>
+pre-line与pre-wrap都会自动换行 但pre-line会把多个空格合并成一个 而pre-wrap会保留空格。
+</body>
+</html>

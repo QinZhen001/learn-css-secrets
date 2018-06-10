@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>zebra-lines</title>
+</head>
+<style>
+  pre {
+    padding: .5em;
+    line-height: 1.5;
+    background: hsl(20, 50%, 95%);
+    background-image: linear-gradient(
+            rgba(120, 0, 0, .1) 50%, transparent 0);
+    background-size: auto 3em;
+    background-origin: content-box;
+    font-family: Consolas, Monaco, monospace;
+  }
+</style>
+<body>
+<pre>
+  while (true) {
+	var d = new Date();
+	if (d.getDate()==1 &&
+	    d.getMonth()==3) {
+		alert("TROLOLOL");
+	}
+}
+</pre>
+
+<br><br>
+:nth-child() 技巧来实现斑马条纹,其实不太健壮。
+<p>
+  当你增大字号导致其中的某一“行”发生折行时会怎么样？我们还有更好的办法吗？
+</p>
+<p>
+	<strong>
+		利用linear-gradient实现 <br>
+		注意: <br>
+		background-size是line-height的两倍 <br>
+		如果出现padding值，要设置background-origin: content-box;
+	</strong>
+</p>
+</body>
+</html>

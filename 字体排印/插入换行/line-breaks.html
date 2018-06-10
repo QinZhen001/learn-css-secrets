@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>line-breaks</title>
+</head>
+<style>
+
+  dt, dd {
+    display: inline;
+    margin: 0;
+  }
+
+  dd {
+    font-weight: 600;
+  }
+
+  dd + dt::before {
+    content: '\A';
+    white-space: pre;
+  }
+
+  dd + dd:before {
+    content: ', ';
+    font-weight: normal;
+    margin-left: -.25em;
+
+  }
+
+</style>
+<body>
+<dl>
+  <dt>Email:</dt>
+  <dd>lea@verou.me</dd>
+  <dd>leaverou@mit.edu</dd>
+  <dd>qq5864@mit.edu</dd>
+  <dd>123456@qq.com</dd>
+  <dt>Location:</dt>
+  <dd>Earth</dd>
+  <dd>City</dd>
+  <dd>House</dd>
+</dl>
+
+<br><br>
+采用dd + dt的方式 (实现多个dd不换行,dt和对应dt在一行)
+<br>
+因为即使是在多个 dt 共用同一个值的场 景下，它也是可以正常工作的；
+
+<br>
+<br>
+逗号前面会有一个空格。有很多方法可以修复这个问 题，但都不够完美。其中一种方法是利用负外边距
+<br>
+margin-left: -.25em;(对绝大多数字体来说，这种方法是可行的。)
+</body>
+</html>
