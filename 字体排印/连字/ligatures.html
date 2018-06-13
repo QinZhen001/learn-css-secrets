@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ligatures</title>
+  <style>
+    div p{
+      font: 200%/1.6 "Adobe Caslon Pro", Baskerville, serif;
+      font-variant-ligatures: common-ligatures historical-ligatures discretionary-ligatures;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <p>
+    Common ligatures: fi ff fl ffi ffl
+  </p>
+ <p>
+   Discretionary ligatures: st ct
+ </p>
+</div>
+
+
+<br><br><br><br>
+css3中原有的 font-variant 被升级成了一个简写属性 <br>
+其中之一叫作 font-variant-ligatures，专门用来控制连字效果的开启和关闭 <br>
+如果要启用所有可能的连字，需要同时指定这三个标识符：
+<br>
+<p>
+  font-variant-ligatures:
+  common-ligatures
+  discretionary-ligatures
+  historical-ligatures;
+</p>
+<p>
+  这个属性是可继承的。比如，发现酌情连字可能会干扰到正常文字的阅 读效果时，你可能希望把它单独关掉。在这种情况下，你可能只想开启通用 连字：
+  font-variant-ligatures: common-ligatures;
+</p>
+<p>
+  你甚至可以显式地把其他两种连字关闭：
+</p>
+<p>
+  font-variant-ligatures:
+  common-ligatures
+  no-discretionary-ligatures
+  no-historical-ligatures;
+</p>
+<p>
+  <strong>font-variant-ligatures还接受none这个值，它会把所有的连字效果都 关掉。千万不要使用none，除非你绝对清楚自己是在做什么</strong>
+</p>
+<p>
+  如果要把font-variant-ligatures属性复位为初始值，应该使用normal而不是none。
+</p>
+</body>
+</html>

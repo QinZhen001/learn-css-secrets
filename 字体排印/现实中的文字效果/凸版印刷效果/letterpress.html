@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>letterpress</title>
+  <style>
+    body {
+      font-size: 18px;
+    }
+
+    div {
+      font: 250%/1.6 Baskerville, Palatino, serif;
+    }
+
+    p {
+      padding: .8em 1em;
+      background: hsl(210, 13%, 60%);
+      color: hsl(210, 13%, 30%);
+      text-shadow: 0 1px 1px hsla(0, 0%, 100%, .8);
+    }
+
+    p + p {
+      background: hsl(210, 13%, 30%);
+      color: hsl(210, 13%, 60%);
+      text-shadow: 0 -1px 1px black;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <p>
+    “The only way to get rid of a temp­ta­tion is to yield to it.”
+  </p>
+  <p>
+    “The only way to get rid of a temp­ta­tion is to yield to it.”
+  </p>
+</div>
+
+<br><br><br>
+总结 <br>
+如果text-shadow是比较白的颜色 就采用向下的阴影 text-shadow: 0 1px 1px hsla(0, 0%, 100%, .8);
+<br>
+如果text-shadow是比较黑的颜色 就采用向上的阴影 text-shadow: 0 -1px 1px black;
+</body>
+</html>

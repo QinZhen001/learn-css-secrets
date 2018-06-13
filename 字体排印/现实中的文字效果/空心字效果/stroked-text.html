@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>stroked-text</title>
+  <style>
+    body {
+      color: white;
+      font-size: 18px;
+      background: deeppink;
+    }
+
+    div {
+      font: bold 200%/1 Rockwell, serif;
+    }
+
+    h1:first-child {
+      text-shadow: 1px 1px black,
+      -1px -1px black,
+      -1px 1px black,
+      1px -1px black;
+    }
+
+    h1:nth-child(2) {
+      text-shadow: 0 0 1px black,
+      0 0 1px black,
+      0 0 1px black,
+      0 0 1px black,
+      0 0 1px black,
+      0 0 1px black;
+    }
+
+    h1 text {
+      fill: currentColor;
+    }
+
+    h1 svg {
+      overflow: visible
+    }
+
+    h1 use {
+      stroke: black;
+      stroke-width: 6;
+      stroke-linejoin: round;
+    }
+
+  </style>
+</head>
+<body>
+<div>
+  <h1>
+    CSS
+  </h1>
+  <h1>
+    CSS
+  </h1>
+  <h1>
+    <svg width="2em" height="1.2em">
+      <use xlink:href="#css"/>
+      <text id="css" y="1em">CSS</text>
+    </svg>
+  </h1>
+</div>
+
+<br><br><br>
+重叠多层轻微模糊的投影来模拟描边,这种方法不需要设置偏移量 <br>
+但是这种方法性能消耗较高，因为用了模糊算法 <br>
+<p>
+  <strong>不幸的是，我们需要的描边越粗，这两种方案产生的结果就越差</strong>
+</p>
+<p>
+  最后，我们使用SVG这个终极方案，不过它需要在结构代码中插入很多乱糟糟的东西
+</p>
+</body>
+</html>

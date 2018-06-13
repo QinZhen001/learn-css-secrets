@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>circular-text</title>
+  <style>
+    body {
+      font: bold 120% Helvetica, sans-serif;
+    }
+
+    .circular {
+      width: 30em;
+      height: 30em;
+      margin: 4em auto 0;
+    }
+
+    .circular svg {
+      display: block;
+      overflow: visible;
+      transition: 20s linear transform;
+    }
+
+    .circular svg:hover {
+      transform: rotate(-2turn);
+    }
+
+    .circular text {
+      fill: currentColor;
+    }
+
+    .circular path {
+      fill: none;
+    }
+  </style>
+</head>
+<body>
+<div class="circular">
+  <svg viewBox="0 0 100 100">
+    <path d="M 0,50 a 50,50 0 1,1 0,1 z" id="circle"></path>
+    <text>
+      <textPath xlink:href="#circle">
+        circular reasoning works because
+      </textPath>
+    </text>
+  </svg>
+</div>
+
+
+<br><br><br>
+但有时我们确实需要让一个短句沿着圆形的 路径进行排列 <br>
+尽管目前还没有更好的纯 CSS 实现方法，但我们其实可以借助一点内 联 SVG 来轻松解决这个难题 <br>
+SVG 原生支持以任意路径排队的文字，而圆 形只不过是一种特定的路径而已 <br>
+<p>
+  在 SVG 中，让文本按照路径排列的基本方法就是用一个&lt textPath &gt元素来包裹住这段文本，再把它们装进一个 &lt text &gt 元素中
+</p>
+<p>
+  这个&lt textPath &gt 元素还需要在它的 ID 属性中引用一个 &lt path &gt元素，然后就可 以用这个 &lt path &gt 元素来定义我们想要的路径。
+</p>
+</body>
+</html>

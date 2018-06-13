@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>extruded</title>
+  <style>
+    body {
+      background: #58a;
+      color: white;
+    }
+
+    p {
+      text-shadow: 0 1px hsl(0, 0%, 85%),
+      0 2px hsl(0, 0%, 80%),
+      0 3px hsl(0, 0%, 75%),
+      0 4px hsl(0, 0%, 70%),
+      0 5px hsl(0, 0%, 65%),
+      0 5px 10px black;
+
+      font: bold 500%/1 Rockwell, serif;
+    }
+  </style>
+</head>
+<body>
+
+<p>
+  CSS3d
+</p>
+
+<br><br><br>
+这其中的主要思路就是使用一长串累加的投影， 不设模糊并以 1px 的跨度逐渐错开，使颜色逐渐变暗，
+<br>
+然后在底部加一层强烈模糊的暗投影，从而模拟完整的立体效果。
+</body>
+</html>
