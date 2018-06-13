@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>disabled</title>
+  <style>
+    button {
+      margin: 10px;
+      width: 200px;
+      height: 50px;
+    }
+
+    :disabled, [aria-disabled="true"], [disabled] {
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<button>Button</button>
+<button disabled="disabled">Disabled Button</button>
+
+
+<br><br><br>
+提示禁用状态 (not-allowed)
+<br>
+其是在眼下， 大多数表单都已经被过度美化，要清楚地表达某个表单控件是否被禁用往往 十分困难，而这正是这个新光标的用武之地。
+<br>
+</body>
+</html>

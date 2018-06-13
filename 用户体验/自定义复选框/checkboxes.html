@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>checkboxes</title>
+  <style>
+    div {
+      font: 150%/1.6 sans-serif;
+    }
+
+    /*隐藏原来的checkbox*/
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    input[type="checkbox"] + label::before {
+      /*
+        content:'\a0'是一个空格字符
+        不能设置content:''
+        这样当content: '\2713'的时候这个before模拟的checkbox会发生抖动
+       */
+      content: '\a0';
+      display: inline-block;
+      vertical-align: .1em;
+      margin-right: .2em;
+      width: .8em;
+      height: .8em;
+      background: silver;
+      border-radius: .2em;
+      text-indent: .15em;
+      line-height: .65;
+    }
+
+    input[type="checkbox"]:checked + label::before {
+      content: '\2713';
+      background: yellowgreen;
+    }
+
+    /*input[type="checkbox"]:focus + label::before{*/
+    /*box-shadow: 0 0 .1em .1em #58a*/
+    /*}*/
+
+    input[type="checkbox"]:disabled + label::before {
+      background: gray;
+      box-shadow: none;
+      color: #555;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <input type="checkbox" id="awesome">
+  <label for="awesome">Awesome!</label>
+</div>
+<br><br><br>
+当 &lt label &gt 元素与复选框关联之后，也可以起到触发开关的作用 <br>
+由于 label 不是复选框那样的替换元素，我们可以为它添加生成性内容（伪元素），并基于复选框的状态来为其设置样式
+<br><br><br>
+然后，就可以把真正的复选框隐藏起来 <br>
+需要把原来的复选框以一种不损失可访问性的方式隐藏起来。 <br>
+这意味着不能使用 display: none，因为那样会 把它从键盘 tab 键切换焦点的队列中完全删除。 <br>
+我们改用另一种方法来达到 目的：<br>
+
+<pre>
+input[type="checkbox"] {
+  position: absolute;
+  clip: rect(0,0,0,0);
+}
+</pre>
+
+
+<br><br><br>
+为伪类选择 符 :checked 和属性选择符 [checked] 之间的区别? <br>
+后者是不会根据用户的交互 行为进行更新的，因为用户的交 互并不会影响到HTML标签上的 属性。
+
+</body>
+</html>

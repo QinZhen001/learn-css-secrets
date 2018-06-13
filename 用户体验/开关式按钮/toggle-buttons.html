@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>toggle-buttons</title>
+  <style>
+    div {
+      font: 150%/1.6 sans-serif;
+    }
+
+    input[type="checkbox"] {
+      position: absolute;
+      clip: rect(0, 0, 0, 0);
+    }
+
+    input[type="checkbox"] + label {
+      display: inline-block;
+      padding: .35em .5em .2em;
+      text-align: center;
+      background: #ccc;
+      background-image: linear-gradient(#ddd, #bbb);
+      border: 1px solid rgba(0, 0, 0, .2);
+      border-radius: .3em;
+      box-shadow: 0 1px white inset;
+      text-shadow: 0 1px 1px white;
+      cursor: pointer;
+    }
+
+    input[type="checkbox"]:checked + label,
+    input[type="checkbox"]:active + label {
+      box-shadow: .04em .1em .2em rgba(0, 0, 0, .6) inset;
+      border-color: rgba(0,0,0,.3);
+      background: #bbb;
+    }
+  </style>
+</head>
+<body>
+<div>
+  <input type="checkbox" id="awesome" autofocus/>
+  <label for="awesome">Awesome!</label>
+
+  <input type="checkbox" id="awesome2" checked/>
+  <label for="awesome2">Awesome!</label>
+</div>
+<br><br><br>
+说到开关式按钮，HTML 并没有提供一种原生的方式来生成它，但我们
+可以<strong>利用“复选框 hack”的思路</strong>来模拟它。
+<p>
+  不过，在使用开关式按钮时仍需慎重。在绝大多数场景下，开关式按钮 对可用性有负面作用，因为它们很容易与普通按钮混淆，
+  让人误以为按下它 会触发某个动作。
+</p>
+</body>
+</html>
