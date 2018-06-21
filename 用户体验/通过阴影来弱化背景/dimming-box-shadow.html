@@ -3,12 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <title>dimming-box-shadow</title>
+  <style>
+    html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .light-box {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 500px;
+      height: 300px;
+    }
+
+    .light-box::before {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, .8);
+      z-index: -1;
+    }
+
+    .light-box img {
+      width: 100%;
+      height: 100%;
+    }
+
+
+  </style>
 </head>
 <body>
-
 <br><br><br>
 很多时候，我们需要通过一层半透明的遮罩层来把后面的一切整体调 暗，以便凸显某个特定的 UI 元素，引导用户关注
 <br>
 伪元素方案 我们可以用伪元素来消除额外的 HTML 元素
+
+
+<div class="light-box">
+  <img src="../../img/about-bg.jpg" alt="">
+</div>
+
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores commodi consectetur corporis dolorum
+  inventore iste labore, maiores non obcaecati provident quam, quasi quo similique, voluptas voluptatibus. Ea,
+  excepturi.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+<p>
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+  perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+</p>
+
 </body>
 </html>
