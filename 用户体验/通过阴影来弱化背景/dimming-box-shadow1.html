@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>dimming-box-shadow</title>
+  <style>
+
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font: 150%/1.6 Baskerville, Palatino, serif;
+      background: white;
+    }
+
+    main {
+      transition: .6s;
+    }
+
+    main.de-emphasized {
+      filter: blur(3px)
+    }
+
+    button {
+      display: block;
+      width: 200px;
+      height: 50px;
+    }
+
+    dialog {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 10em;
+      padding: 2em;
+      margin: -5em;
+      border: 1px solid silver;
+      border-radius: .5em;
+      box-shadow: 0 .2em .5em rgba(0, 0, 0, .5),
+      0 0 0 100vmax rgba(0, 0, 0, .2);
+      z-index: 1;
+    }
+
+  </style>
+</head>
+<body>
+<dialog>O HAI, I’m a dialog. Click on me to dismiss.</dialog>
+
+<main>
+  <br>
+  当使用一个独立的元素（或伪元素）来实现遮罩层时，这个遮罩 层不仅可以从视觉上把用户的注意力引导到关键元素上，
+  <strong>还可以防止用户的鼠标与页面的其他部分发生交互，因为遮罩层会捕获所有指针事件</strong>
+  <br>
+  通过::backdrop伪元素可以为dialog背景遮罩设置样式
+
+  <button>Show dialog</button>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores commodi consectetur corporis
+    dolorum
+    inventore iste labore, maiores non obcaecati provident quam, quasi quo similique, voluptas voluptatibus. Ea,
+    excepturi.
+  </p>
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+    perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+  </p>
+
+
+
+
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. A at distinctio exercitationem fugiat, minima minus nemo
+    perspiciatis voluptatum. Amet aut consequuntur expedita facere harum ipsam nemo odit officiis suscipit vero.
+  </p>
+</main>
+</body>
+
+
+<script>
+    function $(sel) {
+        return document.querySelector(sel)
+    }
+
+    var dialog = $('dialog')
+    var main = $('main')
+
+    $('button').onclick = function () {
+        if (dialog.close) {
+            dialog.showModal()
+            main.classList.add('de-emphasized')
+        } else {
+            dialog.close()
+            main.classList.remove('de-emphasized')
+        }
+    }
+
+    dialog.onclick = function () {
+        dialog.close()
+        main.classList.remove('de-emphasized')
+    }
+
+
+</script>
+</html>

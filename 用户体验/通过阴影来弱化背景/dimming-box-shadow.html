@@ -18,27 +18,13 @@
     }
 
     .light-box {
-      position: absolute;
+      position: fixed;
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
       width: 500px;
       height: 300px;
-    }
-
-    .light-box::before {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(0, 0, 0, .8);
-      z-index: -1;
-    }
-
-    .light-box img {
-      width: 100%;
-      height: 100%;
+      box-shadow: 0 0 0 50vmax rgba(0, 0, 0, .8);
     }
 
 
@@ -46,15 +32,20 @@
 </head>
 <body>
 <br><br><br>
-很多时候，我们需要通过一层半透明的遮罩层来把后面的一切整体调 暗，以便凸显某个特定的 UI 元素，引导用户关注
+很多时候，我们需要通过一层半透明的遮罩层来把后面的一切整体调暗，以便凸显某个特定的 UI 元素，引导用户关注
+<br><br>
+boxshadow实现方式
 <br>
-伪元素方案 我们可以用伪元素来消除额外的 HTML 元素
+boxshadow只能在视觉上起到引导注意力的作用，却无法阻止鼠标交互
+<br>
+所以此处最合适的视口单位是 vmax(1vmax 相当于 1vw 和 1vh 两者中的较大值。)
+<br>
+100vh 就是视口的高度。因此，满足我们需求的最小值就是 50vmax。由于投影是同时向四个方向扩展的，这个遮罩层的最终尺寸将是 100vmax 加上元素本身的尺寸。
+<br><br>
 
+，由于遮罩层的尺寸是与视口相关，而不是与页面相关的，当我们 滚动页面时，遮罩层的边缘就露出来了，<strong>除非给它加上 position: fixed;</strong>
 
-<div class="light-box">
-  <img src="../../img/about-bg.jpg" alt="">
-</div>
-
+<img class="light-box" src="../../img/about-bg.jpg" alt="">
 
 <p>
   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab adipisci asperiores commodi consectetur corporis dolorum
