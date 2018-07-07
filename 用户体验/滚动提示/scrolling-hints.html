@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>scrolling-hints</title>
+  <style>
+    body {
+      height: 5000px;
+    }
+
+    ul {
+      margin-top: 30px;
+      padding: .3em .5em;
+      display: inline-block;
+      overflow: auto;
+      width: 7.2em;
+      height: 7em;
+      border: 1px solid silver;
+      list-style: none;
+      font: 100 200%/1.6 'Frutiger LT Std', sans-serif;
+      background: linear-gradient(white 15px, hsla(0, 0%, 100%, 0)) 0 0 / 100% 50px,
+      radial-gradient(at top, rgba(0, 0, 0, .2), transparent 70%) 0 0 / 100% 15px,
+      linear-gradient(to top, white 15px, hsla(0, 0%, 100%, 0)) bottom / 100% 50px,
+      radial-gradient(at bottom, rgba(0, 0, 0, .2), transparent 70%) bottom / 100% 15px;
+      background-attachment: local, scroll, local, scroll;
+      background-repeat: no-repeat;
+    }
+
+    pre {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+<ul>
+  <li>Ada Catlace</li>
+  <li>Alan Purring</li>
+  <li>Schrödingcat</li>
+  <li>Tim Purrners-Lee</li>
+  <li>Webkitty</li>
+  <li>Json</li>
+  <li>Void</li>
+  <li>Neko</li>
+  <li>NaN</li>
+  <li>Cat5</li>
+  <li>Vector</li>
+</ul>
+
+<br><br><br>
+<pre>
+---------
+| |
+
+| |
+
+| |
+---------
+这是一个元素P。
+
+
+当你的指针在P外时，滚动的是P本身。当你的指针在P内时，滚动的是P的内容。
+也就是说，当你滚动P本身时，local和scroll，背景都会随P的位置滚动。
+<strong>而当你滚动P的内容时，scroll背景不会随滚动而滚动，local则会随滚动而滚动。</strong>
+</pre>
+<br>
+<pre>
+  local是背景随元素内容滚动，
+  而scroll是相对元素本身固定，
+  有时候scroll的背景（写在body上的背景）也会滚动是因为元素本身也滚动了？看到滚动只是错觉
+</pre>
+</body>
+</html>

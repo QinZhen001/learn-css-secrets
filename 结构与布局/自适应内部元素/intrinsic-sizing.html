@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>intrinsic-sizing</title>
+  <style>
+    figure {
+      max-width: 300px; /*为了给那些旧版浏览器提供一个平稳的回 退样式*/
+      max-width: min-content; /*关键点*/
+      margin: auto;
+      padding: 10px;
+      border: 1px solid silver;
+    }
+
+    figure > img {
+      max-width: 300px;
+    }
+
+
+  </style>
+</head>
+<body>
+min-content  这个关键字将解析为这个容器内部最大的不可断行元素的宽度
+<br>
+（即最宽的单词、图片或具有固定宽度的盒元素）
+<br><br>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aliquam architecto at dolorem doloremque doloribus ea
+  eius enim est, harum magni modi nostrum officiis quo rem sit totam, voluptatem voluptatum!</p>
+<figure>
+  <img width="300" height="300" src="../../img/about-bg.jpg" alt="">
+  <figcaption>
+    The great Sir Adam Catlace was named after Countess Ada Lovelace, the first programmer ever.
+  </figcaption>
+</figure>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad assumenda aut dicta doloremque, doloribus dolorum eaque
+  excepturi maxime natus non nostrum pariatur, placeat, quaerat repellat tempora velit voluptates. Itaque, ullam?</p>
+</body>
+</html>

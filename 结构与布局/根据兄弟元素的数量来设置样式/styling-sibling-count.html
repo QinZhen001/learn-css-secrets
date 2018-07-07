@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>styling-sibling-count</title>
+</head>
+<body>
+在某些场景下，我们需要根据兄弟元素的总数来为它们设置样式。<br>
+最常见的场景就是，当一个列表不断延长时，通过隐藏控件或压缩控件等方式来 节省屏幕空间，以此提升用户体验。<br><br>
+<strong>但是，在css众多选择器中并没有一种组合式选择符可以用“回头看”的方式 选中之前的兄弟元素</strong> <br>
+<br>
+对于只有一个列表项的特殊场景来说，解决方案显然就是 :only-child <br>
+实际上，:only-child 等效于 :ﬁrst-child:last-child， 道理很简单：如果第一项同时也是最后一项，那从逻辑上来说它就是唯一的那一项。<br>
+:last-child 其实也是一个快捷写法，相当于:nth-last-child(1)
+<br><br>
+
+<p>
+  你能猜到 li:ﬁrst-child:nth-last-child(4) 会命中哪些元素吗？
+</p>
+<p>
+  让我们把这两个伪类分开来想一想：我们在找一个同时匹 配 :ﬁrst-child 和 :nth-last-child(4) 的元素。
+</p>
+因此，这个元素需要是父元素的第一个子元素，同时还需要是从后往前数的第四个子元素。有哪个元素可以满足这个条件呢？
+<p>
+  <strong>答案就是，一个正好有四个列表项的列表中的第一个列表项</strong>
+</p>
+<p>
+  我们现在已经找 到一种命中特定数量列表项中第一项的方法，接下来就可以用兄弟选择符 （~）来命中它之后的所有兄弟元素
+</p>
+<p>
+  <strong>相当于在这个列表正好包含四个列表项 时，命中它的每一项，而这正是我们一直想要达成的目标</strong>
+</p>
+<br>
+根据兄弟元素的数量范围来匹配元素 <br>
+在实际的应用场景中，我们期望匹配元素的条件往往并不是列表项的具 体数量，而是一个数量范围。:nth-child() 选择符在这方面非常好用， <br>
+我们可以用它来命中一个范围 比如 :nth-child(2n+1) , :nth-child(n+4)
+<br>
+假设我们希望在列表包含 2 ～ 6 个列表项时命中所有的列表项，可以这样写： <br>
+<pre>
+  li:first-child:nth-last-child(n+2):nth-last-child(-n+6),
+  li:first-child:nth-last-child(n+2):nth-last-child(-n+6) ~ li {
+       /* 当列表包含2～6项时，命中所有列表项 */
+  }
+</pre>
+<br><br><br>
+
+<ul class="palette">
+  <li>
+    <div class="color-options">
+      <a class="add" href="#">Add</a>
+      <a class="delete" href="#"></a>
+    </div>
+  </li>
+</ul>
+</body>
+<script src="../../main.js"></script>
+<script>
+    function addColor(template) {
+        var li = template.cloneNode()
+    }
+</script>
+</html>

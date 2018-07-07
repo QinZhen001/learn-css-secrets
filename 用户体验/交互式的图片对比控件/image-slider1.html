@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>image-slider</title>
+  <style>
+    .image-slider {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .img-left {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      min-width: 50%;
+      max-width: 100%;
+      overflow: hidden;
+      resize: horizontal;
+      z-index: 1;
+    }
+
+    .img-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      height: 100%;
+      width: 50%;
+    }
+
+    .image-slider img {
+      display: inline-block;
+      user-select: none;
+    }
+
+    input {
+      filter: contrast(.5);
+      mix-blend-mode: luminosity;
+    }
+
+
+  </style>
+</head>
+<body>
+<div class="image-slider">
+  <img class="img-left" src="../../img/about-bg.jpg" alt="">
+  <img class="img-right" src="../../img/stone-art.jpg" alt="">
+</div>
+<br><br>
+
+
+
+
+</body>
+<script src="../../main.js"></script>
+<script>
+    window.onload = function () {
+        $$('.image-slider').forEach(function (slider) {
+            var img = slider.querySelector('.img-left')
+            //创建滑块
+            var range = document.createElement('input')
+            range.type = 'range'
+            range.value = 50;
+            range.style.position = 'absolute'
+            range.style.left = 0
+            range.style.bottom = '20px'
+            range.style.zIndex = 1
+            range.style.width = '500px'
+            range.oninput = function () {
+                img.style.width = this.value + '%'
+            }
+            slider.appendChild(range)
+        })
+    }
+</script>
+</html>

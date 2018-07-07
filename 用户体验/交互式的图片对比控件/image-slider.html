@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>image-slider</title>
+  <style>
+    .image-slider {
+      width: 500px;
+      height: 500px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .div-left {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      min-width: 50%;
+      max-width: 100%;
+      overflow: hidden;
+      resize: horizontal;
+      z-index: 1;
+    }
+
+    .img-right {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      height: 100%;
+      width: 50%;
+    }
+
+    .image-slider > div::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 12px;
+      height: 12px;
+      padding: 5px;
+      background: linear-gradient(-45deg, white 50%, transparent 0);
+      background-clip: content-box;
+      cursor: ew-resize;
+      -webkit-filter: drop-shadow(0 0 2px black);
+      filter: drop-shadow(0 0 2px black);
+    }
+
+    .image-slider img {
+      display: inline-block;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+<div class="image-slider">
+  <div class="div-left">
+    <img src="../../img/about-bg.jpg" alt="">
+  </div>
+  <img class="img-right" src="../../img/stone-art.jpg" alt="">
+</div>
+<br><br>
+cursor: ew-resize 扩展标志(左右双箭头)
+<br>
+<br>
+<a href="https://www.cnblogs.com/sanweimiao/p/6388960.html"></a>
+<br>
+box-shadow的属性只能添加到盒模型外面，因此内部的东西是不会添加上的
+<br>
+而drop-shadow就不一样了，他是把选中的所有的非透明区域都做了阴影效果，就相当于一种真正的投影
+</body>
+</html>
