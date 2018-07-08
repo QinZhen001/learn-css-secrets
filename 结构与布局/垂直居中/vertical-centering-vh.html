@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vertical-centering-vh</title>
+  <style>
+    main {
+      margin: 50vh auto 0;
+      padding: 1em 1.5em;
+      width: 18em;
+      box-sizing: border-box;
+      color: white;
+      text-align: center;
+      background: #655;
+    }
+
+    h1 {
+      margin: 0 0 .2em;
+      font-size: 150%;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    body {
+      background: #fb3;
+      font: 100%/1.5 sans-serif;
+    }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Am I centered yet?</h1>
+  <p>Center me, please!</p>
+</main>
+<br><br><br>
+margin的百分比值是以父元素的宽度作为解析基准的 <br>
+所以这里要用vh作为单位
+</body>
+</html>

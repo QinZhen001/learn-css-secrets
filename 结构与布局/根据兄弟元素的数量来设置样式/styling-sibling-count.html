@@ -3,8 +3,98 @@
 <head>
   <meta charset="UTF-8">
   <title>styling-sibling-count</title>
+  <style>
+    /* Hide "color" 4 items or more */
+    .palette li:first-child:nth-last-child(n+4) .color-options a:after,
+    .palette li:first-child:nth-last-child(n+4) ~ li .color-options a:after {
+      content: none;
+    }
+
+    /* Hide word when 6 items or more */
+    .palette li:first-child:nth-last-child(n+6) .color-options a,
+    .palette li:first-child:nth-last-child(n+6) ~ li .color-options a {
+      color: transparent;
+      font-size: 0;
+    }
+
+    .palette li:only-child .delete {
+      display: none;
+    }
+
+    .palette {
+      display: flex;
+      height: 200px;
+      max-width: 900px;
+      font: bold 90%/1 sans-serif;
+    }
+
+    .palette li {
+      flex: 1;
+      list-style: none;
+      background: #D6E055;
+    }
+
+    .color-options {
+      background: rgba(0, 0, 0, .5);
+      padding: 10px;
+      margin: 0 10px;
+      overflow: hidden;
+      border-radius: 0 0 10px 10px;
+    }
+
+    .color-options .add {
+      float: left;
+    }
+
+    .color-options .delete {
+      float: right;
+    }
+
+    .color-options a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .color-options a::before {
+      display: inline-block;
+      font-size: 1rem;
+      width: 1.3rem;
+      margin-right: .3rem;
+      text-align: center;
+      line-height: 1.3;
+      background: white;
+      letter-spacing: normal;
+      border-radius: 50%;
+    }
+
+    .color-options .add::before {
+      content: '+';
+      color: #590;
+    }
+
+    .color-options .delete::before {
+      content: 'x';
+      color: #b00;
+    }
+
+    .color-options a::after {
+      content: ' color';
+      font-weight: normal;
+    }
+
+  </style>
 </head>
+
 <body>
+<ul class="palette">
+  <li>
+    <div class="color-options">
+      <a class="add" href="#">Add</a>
+      <a class="delete" href="#"></a>
+    </div>
+  </li>
+</ul>
+<br><br><br>
 在某些场景下，我们需要根据兄弟元素的总数来为它们设置样式。<br>
 最常见的场景就是，当一个列表不断延长时，通过隐藏控件或压缩控件等方式来 节省屏幕空间，以此提升用户体验。<br><br>
 <strong>但是，在css众多选择器中并没有一种组合式选择符可以用“回头看”的方式 选中之前的兄弟元素</strong> <br>
@@ -42,21 +132,35 @@
        /* 当列表包含2～6项时，命中所有列表项 */
   }
 </pre>
-<br><br><br>
-
-<ul class="palette">
-  <li>
-    <div class="color-options">
-      <a class="add" href="#">Add</a>
-      <a class="delete" href="#"></a>
-    </div>
-  </li>
-</ul>
 </body>
 <script src="../../main.js"></script>
 <script>
+    var colors = [
+            '#D6E055', // Agave
+            '#082323', '#E6E2AF', '#A7A37E', '#EFECCA', '#046380', // Sandy stone beach
+            '#1C171D', '#FEE169', '#CDD452', '#F9722E', '#C9313D', // Sushi Maki
+            '#2E95A3', '#50B8B4', '#C6FFFA', '#E2FFA8'  // Agave
+        ],
+        palette = document.querySelector('.palette'),
+        template = palette.firstElementChild
+
     function addColor(template) {
-        var li = template.cloneNode()
+        var li = template.cloneNode(true)
+        var color = colors.pop()
+        colors.unshift(color)
+        li.style.background = color
+        palette.insertBefore(li, template)
     }
+
+    palette.onclick = function (evt) {
+        var button = evt.target
+        if (button.className === 'add') {
+            addColor(button.parentNode.parentNode)
+        } else if (button.className === 'delete') {
+            var li = button.parentNode.parentNode
+            li.parentNode.removeChild(li)
+        }
+    }
+
 </script>
 </html>

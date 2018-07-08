@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vertical-centering-abs</title>
+</head>
+<style>
+  main {
+    padding: 1em 1.5em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    background: #655;
+    color: white;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 0 0 .2em;
+    font-size: 150%;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  body {
+    background: #fb3;
+    font: 100%/1.5 sans-serif;
+  }
+</style>
+<body>
+<main>
+  <h1>Am I centered yet?</h1>
+  <p>Center me, please!</p>
+</main>
+
+
+<br><br><br>
+在 CSS 中对元素进行水平居中是非常简单的 <br>
+如果它是一个行内元素， 就对它的父元素应用 text-align: center <br>
+如果它是一个块级元素，就对 它自身应用 margin: auto <br>
+</body>
+</html>
