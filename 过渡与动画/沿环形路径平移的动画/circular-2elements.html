@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>circular-2elements</title>
+  <style>
+    .path {
+      padding: 10px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #fb3;
+    }
+
+    .avatar {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      overflow: hidden;
+      animation: spin 3s infinite linear;
+      transform-origin: 50% 150px; /* 150px = 路径的半径 */
+    }
+
+    .avatar > img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      animation: inherit; /*关键代码*/
+      animation-direction: reverse; /*关键代码*/
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(1turn);
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="path">
+  <div class="avatar">
+    <img src="./cat.jpg" alt="">
+  </div>
+</div>
+
+<br><br><br>
+这个答案背后最主要的思路 与“平行四边形”或者“菱形图片”中提到的“嵌套的两层变形会相互抵 消”如出一辙： <br>
+<strong>用内层的变形来抵消外层的变形效果。</strong> <br>
+这次的抵消作用是贯穿于整个动画的每一帧的。 <br>
+
+<br><br>
+我们把早先尝试的那个动画应用到 .avatar 这个容器身上 <br>
+假 设我们对头像元素设置另一个旋转动画，让它以相反的方向自转一周 <br>
+这两层旋转的作用会在头像上相互抵消,我们只会看到父元素旋 转所产生的环绕动作 <br>
+只需把头像的动画设置为相反的角度范围（360-0deg） <br>
+reverse 这个值，它可以得到原始动画的反向 版本，这样我们就可以利用一套关键帧实现两套旋转动画 <br>
+</body>
+</html>

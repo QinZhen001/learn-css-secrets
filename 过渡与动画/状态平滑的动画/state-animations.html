@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>state-animations</title>
+  <style>
+    .panoramic {
+      width: 150px;
+      height: 150px;
+      background: url("./pic.jpg");
+      background-size: auto 100%;
+      animation: panoramic 10s linear infinite alternate;
+      animation-play-state: paused;
+    }
+
+    .panoramic:hover, .panoramic:focus {
+      animation-play-state: running;
+    }
+
+    @keyframes panoramic {
+      to {
+        background-position: 100% 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="panoramic"></div>
+
+
+<br><br><br>
+用户的鼠标可能会 触发一个华丽的 :hover 动画，而在动画还没有播完的时候，鼠标就从元素 上移走了。在这种情况下，你觉得动画会如何收场呢？
+<br>
+在默认情况下，动画只会立即停止播放， 并生硬地跳回开始状态 <br>
+在绝大多数时候，这只会产生非常生硬的用户体验。 <br>
+
+<br><br><br>
+为了修复这个问题，我们需要换个角度来思考： <br>
+<strong>我们需要的是当失去 :hover 状态 时暂停动画</strong>
+</body>
+</html>

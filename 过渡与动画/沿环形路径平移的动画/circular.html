@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>circular</title>
+  <style>
+    .path {
+      margin: 50px auto;
+      padding: 10px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: #fb3;
+    }
+
+    .avatar {
+      margin: calc(50% - 25px) auto 0;
+      display: block;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      animation: spin 3s infinite linear;
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0turn) translateY(-150px) translateY(50%) rotate(1turn);
+      }
+      to {
+        transform: rotate(1turn) translateY(-150px) translateY(50%) rotate(0turn);
+      }
+    }
+
+
+  </style>
+</head>
+<body>
+
+<div class="path">
+  <img class="avatar" src="./cat.jpg" alt="">
+</div>
+
+<br><br>
+基于前面transform-origin语法糖的介绍，借助这个思路，我们就可以基于同一个 transform-origin 来实 现前面用到的两个旋转动画 <br>
+由于现在所有变形函数所使用 的都是相同的原点，我们可以把这两套动画合并为一套，并只用在 .avatar 这一个元素上 <br>
+
+<pre>
+    @keyframes spin {
+      from {
+        transform: translate(50%, 150px)
+                    rotate(0turn)
+                    translate(-50%, -150px)
+                    translate(50%, 50%)
+                    rotate(1turn)
+                    translate(-50%, -50%)
+      }
+      to {
+        transform: translate(50%, 150px)
+                    rotate(1turn)
+                    translate(-50%, -150px)
+                    translate(50%, 50%)
+                    rotate(0turn)
+                    translate(-50%, -50%);
+      }
+    }
+
+    .avatar {
+      animation: spin 3s infinite linear;
+    }
+</pre>
+<br>
+把连续的 translate() 变形操作合并起
+<br>
+尤其是 translate(-50%, -150px) 和 translate(50%, 50%) 这样的 情况。但遗憾的是，百分比值和绝对长度是无法合并的 <br>
+尽管如此，单纯水平方向上的位移还是可以相互抵消的，因此这基本上相当于我们只在 Y 轴上做了两次位移操作 <br>
+translateY(-150px) translateY(50%) <br>
+此外，由于同一关键帧内的两次旋转也会相互抵消，我们还可以把旋转之前和之后的水平位移动作去掉， 再把垂直位移合并起来 <br> <br>
+<pre>
+      @keyframes spin {
+      from {
+        transform: translateY(150px)
+                    translateY(-50%)
+                    rotate(0turn)
+                    translateY(-150px)
+                    translateY(50%)
+                    rotate(1turn);
+
+      }
+      to {
+        transform: translateY(150px)
+                    translateY(-50%)
+                    rotate(1turn)
+                    translateY(-150px)
+                    translateY(50%)
+                    rotate(0turn);
+      }
+    }
+
+    .avatar {
+      animation: spin 3s infinite linear;
+    }
+</pre>
+<br>
+<p>如果把头像放在圆心并以此作为起点</p>
+<p>我们就可 以消除最开始的那两个位移操作了，而实际上这两个位移在本质上所做的就 是把它放在圆心</p>
+<pre>
+      @keyframes spin {
+      from {
+        transform: rotate(0turn)
+                    translateY(-150px)
+                    translateY(50%)
+                    rotate(1turn);
+      }
+      to {
+        transform: rotate(1turn)
+                    translateY(-150px)
+                    translateY(50%)
+                    rotate(0turn);
+      }
+    }
+
+    .avatar {
+      animation: spin 3s infinite linear;
+    }
+</pre>
+</body>
+</html>

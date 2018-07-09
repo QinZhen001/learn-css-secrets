@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>frame-by-frame</title>
+  <style>
+    .loader {
+      width: 100px;
+      height: 100px;
+      text-indent: 999px;
+      overflow: hidden;
+      background: url("./loader.png") 0 0;
+      animation: loader 1s infinite steps(8);
+    }
+
+    @keyframes loader {
+      to {
+        background-position: -800px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="loader">Loading…</div>
+
+
+<br><br><br>
+与贝塞尔曲线调速函数迥然不同的是，steps() 会根据你指定的步进数量，把整个动画切分为多帧， <br>
+而且整个动画会在帧与帧之间硬切，不会做任 何插值处理 <br>
+<br><br><br>
+steps() 还接受可选的第二个参数，其值可以是 start 或 end （默认值）<br>
+，但实际上这个参数用得并不 多。如果我们只需要一个单步切换效果，还可以使用 step-start 和 stepend 这样的简写属性， <br>
+它们分别等同于 steps(1, start) 和 steps(1, end)
+</body>
+</html>

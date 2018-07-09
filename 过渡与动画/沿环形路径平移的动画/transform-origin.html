@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>circular</title>
+  <style>
+    pre {
+      font-size: 16px;
+      line-height: 18px;
+    }
+
+    div {
+      margin: 20px;
+      width: 100px;
+      height: 100px;
+      line-height: 100px;
+      text-align: center;
+      background: red;
+    }
+
+    .div1 {
+      transform: rotate(30deg);
+      transform-origin: 200px 300px;
+    }
+
+    .div2 {
+      transform: translate(200px, 300px) rotate(30deg) translate(-200px, -300px);
+    }
+  </style>
+</head>
+<body>
+
+<div class="div1">div1</div>
+<div class="div2">div2</div>
+
+<br><br>
+“transform-origin 只是一个语法糖而已。实际上你总是可以用 translate() 来代替它。” <br>
+下面两段代码实际上是等效的：<br>
+<pre>
+transform: rotate(30deg);
+transform-origin: 200px 300px;
+
+
+
+
+transform: translate(200px, 300px)
+           rotate(30deg)
+           translate(-200px, -300px);
+transform-origin: 0 0;
+</pre>
+<img src="./screenshot.png" alt="">
+</body>
+</html>
